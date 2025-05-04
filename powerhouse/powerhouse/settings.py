@@ -38,7 +38,6 @@ ALLOWED_HOSTS = [
     'django-powerhouse-api-2c217eecb4f4.herokuapp.com'
 ]
 
-
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-raednimer-cipp5djangoba-fmuq0cvcfjv.ws-eu118.gitpod.io',
 ]
@@ -103,7 +102,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
    origin for origin in [
      os.environ.get('CLIENT_ORIGIN'),
-     os.environ.get('CLIENT_ORIGIN_DEV')
+     os.environ.get('CLIENT_ORIGIN_DEV'),
+     'https://5173-raednimer-cipp5reactfro-m5ypu1hxz6y.ws-eu118.gitpod.io'
    ] if origin
 ]
 
