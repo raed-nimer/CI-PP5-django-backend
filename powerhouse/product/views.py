@@ -17,6 +17,9 @@ class ProductListView(APIView):
             {
                 'id': p.id,
                 'name': p.name,
+                'description': p.description,
+                'category': p.category.name,
+                'image': str(p.image),
                 'price': str(p.price)
             } for p in products
         ]
