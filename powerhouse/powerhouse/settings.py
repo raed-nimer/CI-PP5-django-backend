@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '8000-raednimer-cipp5djangoba-fmuq0cvcfjv.ws-eu118.gitpod.io',
-    'django-powerhouse-api-2c217eecb4f4.herokuapp.com'
+    'https://django-powerhouse-api-2c217eecb4f4.herokuapp.com/'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
