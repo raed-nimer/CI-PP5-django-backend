@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Product
 from rest_framework.permissions import IsAuthenticated
+from cloudinary.utils import cloudinary_url
 
 # Create your views here.
 # @api_view(['GET'])
@@ -13,16 +14,20 @@ class ProductListView(APIView):
 
     def get(self, request):
         products = Product.objects.all()
-        data = [
-            {
+
+        data = []
+
+        for p in products:
+            image_url, options = cloudinary_url(p.image.public_id)
+            data.append({
                 'id': p.id,
                 'name': p.name,
                 'description': p.description,
                 'category': p.category.name,
-                'image': str(p.image),
+                'image': image_url,
                 'price': str(p.price)
-            } for p in products
-        ]
+            })
+
         return Response(data)    
 # blogs = Blog.objects.all()
 # serializer = BlogSerializer(blogs, many=True)
