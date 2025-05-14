@@ -10,3 +10,23 @@ from django.contrib.auth.hashers import make_password
 class IndexView(APIView):
     def get(self, request):
         return Response({'message': 'Welcome to the Powerhouse API!'})
+
+class ContactFormResponseView(APIView):
+    def get(self, request):
+        return Response({'message': 'Contact Form Response API!'})
+    def post(self, request):
+        name = request.data.get('name')
+        email = request.data.get('email')
+        subject = request.data.get('subject')
+        description = request.data.get('description')
+
+        # Save the data to the database
+        contact_form_response = ContactFormResponse(
+            name=name,
+            email=email,
+            subject=subject,
+            description=description
+        )
+        contact_form_response.save()
+
+        return Response({'message': 'Contact form response saved successfully!'})
