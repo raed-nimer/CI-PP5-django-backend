@@ -109,7 +109,8 @@ CORS_ALLOWED_ORIGINS = [
    origin for origin in [
      os.environ.get('CLIENT_ORIGIN'),
      os.environ.get('CLIENT_ORIGIN_DEV'),
-     'https://5173-raednimer-cipp5reactfro-m5ypu1hxz6y.ws-eu118.gitpod.io'
+     'https://5173-raednimer-cipp5reactfro-m5ypu1hxz6y.ws-eu118.gitpod.io',
+     'http://localhost:5173'
    ] if origin
 ]
 
