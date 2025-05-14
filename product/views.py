@@ -29,6 +29,24 @@ class ProductListView(APIView):
             })
 
         return Response(data)    
-# blogs = Blog.objects.all()
-# serializer = BlogSerializer(blogs, many=True)
-# return Response(serializer.data)
+
+
+class ProductDetailView(APIView):
+    authentication_classes = []  # Optional: explicitly disable auth
+    permission_classes = []      # No permissions required
+
+    def get(self, request, pk):
+        try:
+            product = Product.objects.get(pk=pk)
+        except Product.DoesNotExist:
+            raise Http404("Product not found")
+
+        data = {
+            'id': product.id,
+            'name': product.name,
+            'description': product.description,
+            'category': product.category.name,
+            'image': str(product.image),
+            'price': str(product.price),
+        }
+        return Response(data)
