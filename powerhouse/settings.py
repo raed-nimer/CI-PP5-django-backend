@@ -38,6 +38,7 @@ ALLOWED_HOSTS = [
     'http://localhost:5173',
     '8000-raednimer-cipp5djangoba-fmuq0cvcfjv.ws-eu118.gitpod.io',
     'https://django-powerhouse-api-2c217eecb4f4.herokuapp.com',
+    'https://ci-pp-5-react-frontend.vercel.app/',
     '.herokuapp.com'
 ]
 
