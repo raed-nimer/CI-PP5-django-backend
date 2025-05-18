@@ -38,7 +38,7 @@ ALLOWED_HOSTS = [
     'http://localhost:5173',
     '8000-raednimer-cipp5djangoba-fmuq0cvcfjv.ws-eu118.gitpod.io',
     'https://django-powerhouse-api-2c217eecb4f4.herokuapp.com',
-    'https://ci-pp-5-react-frontend.vercel.app/',
+    'https://ci-pp-5-react-frontend.vercel.app',
     '.herokuapp.com'
 ]
 
@@ -111,6 +111,7 @@ CORS_ALLOWED_ORIGINS = [
      os.environ.get('CLIENT_ORIGIN'),
      os.environ.get('CLIENT_ORIGIN_DEV'),
      'https://5173-raednimer-cipp5reactfro-m5ypu1hxz6y.ws-eu118.gitpod.io',
+     'https://ci-pp-5-react-frontend.vercel.app',
      'http://localhost:5173'
    ] if origin
 ]
