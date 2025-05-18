@@ -41,12 +41,13 @@ class ProductDetailView(APIView):
         except Product.DoesNotExist:
             raise Http404("Product not found")
 
+        image_url, options = cloudinary_url(product.image.public_id)
         data = {
             'id': product.id,
             'name': product.name,
             'description': product.description,
             'category': product.category.name,
-            'image': str(product.image),
+            'image': image_url,
             'price': str(product.price),
         }
         return Response(data)
