@@ -81,6 +81,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',  # Custom app
     # 'cart',
     'cart.apps.CartConfig', # Custom App
+    # 'orders',
+    'orders.apps.OrdersConfig',
     # Third-party apps
     'rest_framework',  # Django REST framework
     'rest_framework_simplejwt', # JWT authentication
