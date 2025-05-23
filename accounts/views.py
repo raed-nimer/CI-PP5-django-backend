@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 # Signup View
 class RegisterView(APIView):
@@ -80,4 +80,41 @@ class LoginView(APIView):
             },
             'refresh': str(refresh),
             'access': str(refresh.access_token),
+        })
+        
+
+
+# Get and Update Profile View
+class ProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    # GET /profile
+    def get(self, request):
+        user = request.user
+        return Response({
+            'id': user.id,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email': user.email,
+        })
+
+    # POST /profile
+    def post(self, request):
+        user = request.user
+        first_name = request.data.get('first_name', user.first_name)
+        last_name = request.data.get('last_name', user.last_name)
+
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
+
+        return Response({
+            'status': 'success',
+            'message': 'Profile updated successfully',
+            'user': {
+                'id': user.id,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'email': user.email,
+            }
         })
