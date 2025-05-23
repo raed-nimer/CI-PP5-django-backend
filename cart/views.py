@@ -1,9 +1,9 @@
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework import status, permissions
 from .models import CartItem
-from product.models import Product  # Needed for product lookup
+from product.models import Product
+
 
 def serialize_cart_item(cart_item):
     return {
@@ -11,27 +11,27 @@ def serialize_cart_item(cart_item):
         'product': {
             'id': cart_item.product.id,
             'name': cart_item.product.name,
-            'price': str(cart_item.product.price),  
+            'price': str(cart_item.product.price),
             'image': cart_item.product.image.url if cart_item.product.image else None,
         },
         'quantity': cart_item.quantity
     }
 
-@api_view(['GET'])
+
 class CartItemsView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
     def get(self, request):
-        cart_items = CartItem.objects.filter(user=request.user)
-        data = [serialize_cart_item(item) for item in cart_items]
-        return Response(data)
+        if request.user and request.user.is_authenticated:
+            cart_items = CartItem.objects.filter(user=request.user)
+            data = [serialize_cart_item(item) for item in cart_items]
+            return Response(data)
+        else:
+            return Response([])  # Guest cart handled in frontend
 
-@api_view(['POST'])
+
 class AddToCartView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
     def post(self, request):
         product_id = request.data.get('product_id')
+        quantity = request.data.get('quantity', 1)
 
         if not product_id:
             return Response({"error": "Product ID is required."}, status=status.HTTP_400_BAD_REQUEST)
@@ -41,14 +41,26 @@ class AddToCartView(APIView):
         except Product.DoesNotExist:
             return Response({"error": "Invalid Product ID."}, status=status.HTTP_404_NOT_FOUND)
 
-        try:
-            cart_item = CartItem.objects.get(user=request.user, product=product)
-            cart_item.quantity += 1
+        if request.user and request.user.is_authenticated:
+            cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
+            if not created:
+                cart_item.quantity += int(quantity)
+            else:
+                cart_item.quantity = int(quantity)
             cart_item.save()
-        except CartItem.DoesNotExist:
-            cart_item = CartItem.objects.create(user=request.user, product=product, quantity=1)
+            return Response(serialize_cart_item(cart_item), status=status.HTTP_201_CREATED)
+        else:
+            # Guest user - frontend will handle
+            return Response({
+                "product": {
+                    "id": product.id,
+                    "name": product.name,
+                    "price": str(product.price),
+                    "image": product.image.url if product.image else None,
+                },
+                "quantity": quantity
+            }, status=status.HTTP_201_CREATED)
 
-        return Response(serialize_cart_item(cart_item), status=status.HTTP_201_CREATED)
 
 class UpdateCartItemView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -72,8 +84,8 @@ class UpdateCartItemView(APIView):
 
         cart_item.quantity = quantity
         cart_item.save()
-
         return Response(serialize_cart_item(cart_item))
+
 
 class DeleteCartItemView(APIView):
     permission_classes = [permissions.IsAuthenticated]
