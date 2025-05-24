@@ -30,6 +30,13 @@ class ProductListView(APIView):
 
         return Response(data)    
 
+class CategoryListView(APIView):
+    authentication_classes = []  # Optional: explicitly disable auth
+    permission_classes = []      # No permissions required
+
+    def get(self, request):
+        categories = Category.objects.all()
+        return Response([{'id': c.id, 'name': c.name} for c in categories])
 
 class ProductDetailView(APIView):
     authentication_classes = []  # Optional: explicitly disable auth
