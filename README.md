@@ -24,3 +24,30 @@ Powerhouse is a cutting-edge B2C eCommerce platform dedicated to gym enthusiasts
 | is_staff     | BooleanField  |                             |
 | is_active    | BooleanField  |                             |
 | date_joined  | DateTimeField |                             |
+
+### Product model
+
+- The product model is used to store all the available products.
+
+| key         | Field Type      | Validation                                        |
+| ----------- | --------------- | ------------------------------------------------- |
+| id          | BigIntegerField | primary_key=True                                  |
+| name        | CharField       | max_length=200                                    |
+| description | TextField       |                                                   |
+| price       | IntegerField    |                                                   |
+| category    | ForeignKey      | Category, on_delete=models.SET_NULL               |
+| image       | CloudinaryField |                                                   |
+| created_at  | DateTimeField   | auto_now_add=True                                 |
+| updated_at  | DateTimeField   | auto_now=True                                     |
+
+### Category model
+
+- The category model is used to store categories of blogs.
+
+| key        | Field Type      | Validation        |
+| ---------- | --------------- | ----------------- |
+| id         | BigIntegerField | primary_key=True  |
+| name       | CharField       | max_length=200    |
+| created_at | DateTimeField   | auto_now_add=True |
+| updated_at | DateTimeField   | auto_now=True     |
+
