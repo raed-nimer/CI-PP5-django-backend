@@ -44,3 +44,36 @@ class PlaceOrderView(APIView):
         cart_items.delete()
 
         return Response({'message': 'Order placed successfully.', 'order_id': order.id}, status=status.HTTP_201_CREATED)
+
+
+class ListOrdersView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        orders = Order.objects.filter(user=request.user).prefetch_related('order_items__product')
+
+        order_data = []
+        for order in orders:
+            items = []
+            for item in order.order_items.all():
+                product = item.product
+                items.append({
+                    'id': item.id,
+                    'product': {
+                        'id': product.id,
+                        'name': product.name,
+                        'price': float(product.price),
+                        'image': product.image.url if product.image else None,
+                    },
+                    'quantity': item.quantity,
+                    'price_at_purchase': float(item.price_at_purchase),
+                })
+
+            order_data.append({
+                'id': order.id,
+                'created_at': order.created_at.isoformat(),
+                'total_price': float(order.total_price),
+                'order_items': items
+            })
+
+        return Response(order_data, status=status.HTTP_200_OK)
