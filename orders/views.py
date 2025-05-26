@@ -19,17 +19,28 @@ class PlaceOrderView(APIView):
 
         with transaction.atomic():
             total_price = sum(item.product.price * item.quantity for item in cart_items)
-            order = Order.objects.create(user=request.user, total_price=total_price)
-            order_items = [
-                OrderItem(
-                    order=order,
-                    product=item.product,
-                    quantity=item.quantity,
-                    price_at_purchase=item.product.price
-                ) for item in cart_items
-            ]
-            OrderItem.objects.bulk_create(order_items)
 
-            cart_items.delete()
+        order = Order.objects.create(
+            user=request.user,
+            total_price=total_price,
+            first_name=data.get('firstName'),
+            last_name=data.get('lastName'),
+            email=data.get('email'),
+            address=data.get('address'),
+            country=data.get('country'),
+            state=data.get('state'),
+            zip=data.get('zip'),
+            payment_method=data.get('paymentMethod'),
+        )
+
+        for item in cart_items:
+            OrderItem.objects.create(
+                order=order,
+                product=item.product,
+                quantity=item.quantity,
+                price_at_purchase=item.product.price
+            )
+
+        cart_items.delete()
 
         return Response({'message': 'Order placed successfully.', 'order_id': order.id}, status=status.HTTP_201_CREATED)
