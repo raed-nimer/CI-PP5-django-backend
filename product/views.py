@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Product
+from .models import Product, Category
 from rest_framework.permissions import IsAuthenticated
 from cloudinary.utils import cloudinary_url
 
