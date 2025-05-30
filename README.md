@@ -132,3 +132,12 @@ This project was created using the following languages and frameworks:
 | [dj-database-url](https://pypi.org/project/dj-database-url/)               | Use Database URLs in your Django Application.|
 | [cloudinary](https://pypi.org/project/cloudinary/)                         | The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload, and manage your cloud's assets.|
 | [urllib3](https://pypi.org/project/urllib3/) | HTTP library with thread-safe connection pooling, file post, and more. |  
+
+### Other tools and programs
+
+- [Visual Studio Code.](https://code.visualstudio.com/) Did all of my coding and synchronizing with GitHub on VS Code.
+- [Git](https://git-scm.com/) for version control.
+- [GitHub](https://github.com/) for hosting repositories.
+- [Heroku](https://www.heroku.com/) where the backend Django app is deployed.
+- [Grammarly](https://www.grammarly.com/) was used to double-check spelling mistakes.
+- [Lucid](https://lucid.co/) was used to create database ERD
