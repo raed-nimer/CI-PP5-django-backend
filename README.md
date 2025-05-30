@@ -107,6 +107,11 @@ Powerhouse is a cutting-edge B2C eCommerce platform dedicated to gym enthusiasts
 | product           | ForeignKey      | Product, on_delete=models.CASCADE |
 | order             | ForeignKey      | Order, on_delete=models.CASCADE   |
 
+
+## Agile development
+
+Link to my [GitHub Agile Project](https://github.com/users/raed-nimer/projects/3)
+
 ## Tools and technologies used
 
 ### Languages and Frameworks
