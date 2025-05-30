@@ -141,3 +141,10 @@ This project was created using the following languages and frameworks:
 - [Heroku](https://www.heroku.com/) where the backend Django app is deployed.
 - [Grammarly](https://www.grammarly.com/) was used to double-check spelling mistakes.
 - [Lucid](https://lucid.co/) was used to create database ERD
+
+# Testing
+
+### PEP8 Code Institute Python Linter Validation
+
+- All Python files were tested and passed through the [Code Institute PEP8](https://pep8ci.herokuapp.com/) linter validator.
+
