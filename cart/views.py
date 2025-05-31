@@ -12,7 +12,10 @@ def serialize_cart_item(cart_item):
             'id': cart_item.product.id,
             'name': cart_item.product.name,
             'price': str(cart_item.product.price),
-            'image': cart_item.product.image.url if cart_item.product.image else None,
+            'image': (
+                cart_item.product.image.url
+                if cart_item.product.image else None
+            ),
         },
         'quantity': cart_item.quantity
     }
@@ -34,21 +37,33 @@ class AddToCartView(APIView):
         quantity = request.data.get('quantity', 1)
 
         if not product_id:
-            return Response({"error": "Product ID is required."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"error": "Product ID is required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         try:
             product = Product.objects.get(id=product_id)
         except Product.DoesNotExist:
-            return Response({"error": "Invalid Product ID."}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {"error": "Invalid Product ID."},
+                status=status.HTTP_404_NOT_FOUND
+            )
 
         if request.user and request.user.is_authenticated:
-            cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
+            cart_item, created = CartItem.objects.get_or_create(
+                user=request.user,
+                product=product
+            )
             if not created:
                 cart_item.quantity += int(quantity)
             else:
                 cart_item.quantity = int(quantity)
             cart_item.save()
-            return Response(serialize_cart_item(cart_item), status=status.HTTP_201_CREATED)
+            return Response(
+                serialize_cart_item(cart_item),
+                status=status.HTTP_201_CREATED
+            )
         else:
             # Guest user - frontend will handle
             return Response({
@@ -56,7 +71,10 @@ class AddToCartView(APIView):
                     "id": product.id,
                     "name": product.name,
                     "price": str(product.price),
-                    "image": product.image.url if product.image else None,
+                    "image": (
+                        product.image.url
+                        if product.image else None
+                    ),
                 },
                 "quantity": quantity
             }, status=status.HTTP_201_CREATED)
@@ -69,18 +87,30 @@ class UpdateCartItemView(APIView):
         try:
             cart_item = CartItem.objects.get(id=pk, user=request.user)
         except CartItem.DoesNotExist:
-            return Response({'error': 'Item not found'}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {'error': 'Item not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
 
         quantity = request.data.get('quantity')
         if quantity is None:
-            return Response({'error': 'Quantity is required'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {'error': 'Quantity is required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         try:
             quantity = int(quantity)
             if quantity < 1:
-                return Response({'error': 'Quantity must be at least 1'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    {'error': 'Quantity must be at least 1'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
         except ValueError:
-            return Response({'error': 'Quantity must be an integer'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {'error': 'Quantity must be an integer'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         cart_item.quantity = quantity
         cart_item.save()
@@ -96,4 +126,7 @@ class DeleteCartItemView(APIView):
             cart_item.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
         except CartItem.DoesNotExist:
-            return Response({'error': 'Item not found'}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {'error': 'Item not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
