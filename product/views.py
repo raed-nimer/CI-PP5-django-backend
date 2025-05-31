@@ -6,8 +6,7 @@ from .models import Product, Category
 from rest_framework.permissions import IsAuthenticated
 from cloudinary.utils import cloudinary_url
 
-# Create your views here.
-# @api_view(['GET'])
+
 class ProductListView(APIView):
     authentication_classes = []  # Optional: explicitly disable auth
     permission_classes = []      # No permissions required
@@ -28,7 +27,8 @@ class ProductListView(APIView):
                 'price': str(p.price)
             })
 
-        return Response(data)    
+        return Response(data)
+
 
 class CategoryListView(APIView):
     authentication_classes = []  # Optional: explicitly disable auth
@@ -37,6 +37,7 @@ class CategoryListView(APIView):
     def get(self, request):
         categories = Category.objects.all()
         return Response([{'id': c.id, 'name': c.name} for c in categories])
+
 
 class ProductDetailView(APIView):
     authentication_classes = []  # Optional: explicitly disable auth
