@@ -209,3 +209,31 @@ This project was created using the following languages and frameworks:
 | tests.py  | All clear, no errors found |
 | urls.py   | All clear, no errors found |
 | views.py  | All clear, no errors found |
+
+
+# Deployment
+
+### Deploy with Heroku
+
+1. Login to [Heroku](https://www.heroku.com/) if you already have an account or [sign up](https://signup.heroku.com/) if you don't.
+2. Click on the "New" button on the top right of the home page and select "Create new App" from the drop-down menu.
+3. In the "App name" field, enter the unique name of your app.
+   - Heroku displays a green tick if your app name is available.
+4. In the "Choose a region" field, choose either the United States or Europe based on your location.
+5. Click the "Create app" button.
+6. Next page, top centre of the screen, select the "Settings" tab.
+7. In the "Config Vars" section, click on the "Reveal config Vars" button.
+8. Add environment variables from the local env.py file to the "Config Vars" section:
+   - SECRET_KEY - Django secret key.
+   - DATABASE_USER - Database user.
+   - DATABASE_HOST - Database host.
+   - DATABASE_NAME - Database name.
+   - DATABASE_PASS - Database password.
+   - CLOUDINARY_URL - Cloudinary API URL
+9. Copy and paste these variables into the KEY field and their values into the VALUE field.
+10. Select the "Deploy" tab at the top of the screen.
+11. In the "Deployment method" section, select "GitHub".
+    1. In "Connect to GitHub," click on the "Search" button. Find the project repository in the list and click on the "Connect" button.
+    2. Scroll to the bottom of that page. Click on the "Deploy Branch" button to deploy.
+    3. You should also see an option to enable automatic deployment. If you enable this, every time you push to GitHub, Heroku will automatically deploy the app.
+12. Once the build starts, you should be able to see the logs at the bottom of the page. After successfully finishing building the app, you should see the link to your app.
