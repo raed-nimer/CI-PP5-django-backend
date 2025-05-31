@@ -112,6 +112,10 @@ Powerhouse is a cutting-edge B2C eCommerce platform dedicated to gym enthusiasts
 
 Link to my [GitHub Agile Project](https://github.com/users/raed-nimer/projects/3)
 
+I felt a bit more confident implementing the Agile methodology since I had experience from the last project. For this project, I decided to use Kanban and MOSCOW prioritization method.
+
+Epics and User stories helped me organize the project better. And it can be even more efficient when used within a team. I will continue using this methodology for my future projects considering it being very helpful. I will also start exploring Jira, which is also considered a good agile and project management tool.
+
 ## Tools and technologies used
 
 ### Languages and Frameworks
