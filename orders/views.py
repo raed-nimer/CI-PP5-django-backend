@@ -1,4 +1,4 @@
-from .models import Order, OrderItem 
+from .models import Order, OrderItem
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -8,19 +8,26 @@ from cart.models import CartItem
 from django.db import transaction
 # Create your views here.
 
+
 class PlaceOrderView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
         data = request.data  # <-- this was missing
 
-        cart_items = CartItem.objects.select_related('product').filter(user=request.user)
+        cart_items = CartItem.objects.select_related('product')
+        .filter(user=request.user)
 
         if not cart_items.exists():
-            return Response({'error': 'Your cart is empty.'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {'error': 'Your cart is empty.'},
+                status=status.HTTP_400_BAD_REQUEST
+                )
 
         with transaction.atomic():
-            total_price = sum(item.product.price * item.quantity for item in cart_items)
+            total_price = sum(
+                item.product.price * item.quantity for item in cart_items
+            )
 
             order = Order.objects.create(
                 user=request.user,
@@ -45,14 +52,18 @@ class PlaceOrderView(APIView):
 
             cart_items.delete()
 
-            return Response({'message': 'Order placed successfully.', 'order_id': order.id}, status=status.HTTP_201_CREATED)
+            return Response(
+                {'message': 'Order placed successfully.',
+                    'order_id': order.id},
+                status=status.HTTP_201_CREATED)
 
 
 class ListOrdersView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        orders = Order.objects.filter(user=request.user).prefetch_related('order_items__product')
+        orders = Order.objects
+        .filter(user=request.user).prefetch_related('order_items__product')
 
         order_data = []
         for order in orders:
