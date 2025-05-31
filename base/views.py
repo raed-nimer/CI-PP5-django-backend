@@ -6,15 +6,17 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from .models import ContactFormResponse
 
-# Create your views here.
+
 # Signup View
 class IndexView(APIView):
     def get(self, request):
         return Response({'message': 'Welcome to the Powerhouse API!'})
 
+
 class ContactFormResponseView(APIView):
     def get(self, request):
         return Response({'message': 'Contact Form Response API!'})
+
     def post(self, request):
         name = request.data.get('name')
         email = request.data.get('email')
@@ -30,4 +32,5 @@ class ContactFormResponseView(APIView):
         )
         contact_form_response.save()
 
-        return Response({'message': 'Contact form response saved successfully!'})
+        return Response(
+            {'message': 'Contact form response saved successfully!'})
