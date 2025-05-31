@@ -21,7 +21,7 @@ if os.path.isfile('env.py'):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#CLOUDINARY_URL=cloudinary://821975157432632:ESCCluwvBwEyHMj_KNwCDj1hfxM@ddxwsdkqc
+# CLOUDINARY_URL=cloudinary://821975157432632:ESCCluwvBwEyHMj_KNwCDj1hfxM@ddxwsdkqc
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -71,7 +71,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary_storage',
-    
+
     # My Apps
     # 'base',
     'base.apps.BaseConfig',  # Custom app
@@ -80,15 +80,15 @@ INSTALLED_APPS = [
     # 'accounts',
     'accounts.apps.AccountsConfig',  # Custom app
     # 'cart',
-    'cart.apps.CartConfig', # Custom App
+    'cart.apps.CartConfig',  # Custom App
     # 'orders',
     'orders.apps.OrdersConfig',
     # Third-party apps
     'rest_framework',  # Django REST framework
-    'rest_framework_simplejwt', # JWT authentication
+    'rest_framework_simplejwt',  # JWT authentication
     'corsheaders',  # CORS headers
     'cloudinary'
-    
+
 ]
 
 REST_FRAMEWORK = {
@@ -143,9 +143,10 @@ WSGI_APPLICATION = 'powerhouse.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 if 'DATABASE_URL' not in os.environ:
-    raise RuntimeError("The DATABASE_URL environment variable is required but not set.")
+    raise RuntimeError(
+        "The DATABASE_URL environment variable is required but not set.")
 
-#if 'DEV' in os.environ:
+# if 'DEV' in os.environ:
 #     DATABASES = {
 #         'default': {
 #             'ENGINE': 'django.db.backends.sqlite3',
@@ -164,16 +165,20 @@ print('Connected')
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
