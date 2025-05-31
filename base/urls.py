@@ -9,6 +9,3 @@ urlpatterns = [
     path('contact/', views.ContactFormResponseView.as_view(), name="contact")
 
 ]
-
-# urlpatterns += static(
-#         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
