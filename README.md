@@ -148,3 +148,64 @@ This project was created using the following languages and frameworks:
 
 - All Python files were tested and passed through the [Code Institute PEP8](https://pep8ci.herokuapp.com/) linter validator.
 
+#### Powerhouse app
+
+| File        | Result                                                          |
+| ----------- | --------------------------------------------------------------- |
+| urls.py     | ![PEP8 Linter](staticfiles/python-linter.png)                   |
+| settings.py | All clear, no errors found                                      |
+
+#### accounts app
+
+| File      | Result                     |
+| --------- | -------------------------- |
+| admin.py  | All clear, no errors found |
+| apps.py   | All clear, no errors found |
+| models.py | All clear, no errors found |
+| tests.py  | All clear, no errors found |
+| urls.py   | All clear, no errors found |
+| views.py  | All clear, no errors found |
+
+#### base app
+
+| File      | Result                     |
+| --------- | -------------------------- |
+| admin.py  | All clear, no errors found |
+| apps.py   | All clear, no errors found |
+| models.py | All clear, no errors found |
+| tests.py  | All clear, no errors found |
+| urls.py   | All clear, no errors found |
+| views.py  | All clear, no errors found |
+
+#### cart app
+
+| File      | Result                     |
+| --------- | -------------------------- |
+| admin.py  | All clear, no errors found |
+| apps.py   | All clear, no errors found |
+| models.py | All clear, no errors found |
+| tests.py  | All clear, no errors found |
+| urls.py   | All clear, no errors found |
+| views.py  | All clear, no errors found |
+
+#### orders app
+
+| File      | Result                     |
+| --------- | -------------------------- |
+| admin.py  | All clear, no errors found |
+| apps.py   | All clear, no errors found |
+| models.py | All clear, no errors found |
+| tests.py  | All clear, no errors found |
+| urls.py   | All clear, no errors found |
+| views.py  | All clear, no errors found |
+
+#### product app
+
+| File      | Result                     |
+| --------- | -------------------------- |
+| admin.py  | All clear, no errors found |
+| apps.py   | All clear, no errors found |
+| models.py | All clear, no errors found |
+| tests.py  | All clear, no errors found |
+| urls.py   | All clear, no errors found |
+| views.py  | All clear, no errors found |
