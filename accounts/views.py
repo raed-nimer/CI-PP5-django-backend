@@ -7,6 +7,8 @@ from django.contrib.auth.hashers import make_password
 from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 # Signup View
+
+
 class RegisterView(APIView):
     def post(self, request):
         try:
@@ -21,10 +23,14 @@ class RegisterView(APIView):
             password = request.data.get('password')
 
             if not email or not password:
-                return Response({'error': 'Username, email and password required'}, status=400)
+                return Response(
+                        {'error': 'Username, email and password required'},
+                        status=400
+                        )
 
             if User.objects.filter(email=email).exists():
-                return Response({'error': 'Account already exists'}, status=400)
+                return Response(
+                        {'error': 'Account already exists'}, status=400)
 
             user = User.objects.create(
                 first_name=first_name,
@@ -50,8 +56,9 @@ class RegisterView(APIView):
         except Exception as e:
             print("Error in RegisterView:", e)
             return Response({'error': 'An error occurred'}, status=500)
-        
 # Login View
+
+
 class LoginView(APIView):
     def post(self, request):
         email = request.data.get('email')
@@ -59,7 +66,8 @@ class LoginView(APIView):
 
         if not email or not password:
             print("Email and password required")
-            return Response({'error': 'Username and password required'}, status=400)
+            return Response(
+                    {'error': 'Username and password required'}, status=400)
 
         user = User.objects.filter(email=email).first()
 
@@ -81,7 +89,6 @@ class LoginView(APIView):
             'refresh': str(refresh),
             'access': str(refresh.access_token),
         })
-        
 
 
 # Get and Update Profile View
