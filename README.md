@@ -138,6 +138,9 @@ This project was created using the following languages and frameworks:
 | [dj-database-url](https://pypi.org/project/dj-database-url/)               | Use Database URLs in your Django Application.|
 | [cloudinary](https://pypi.org/project/cloudinary/)                         | The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload, and manage your cloud's assets.|
 | [urllib3](https://pypi.org/project/urllib3/) | HTTP library with thread-safe connection pooling, file post, and more. |  
+| [django-cors-headers](https://pypi.org/project/django-cors-headers/) | django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS). |
+| [djangorestframework](https://pypi.org/project/djangorestframework/) | Web APIs for Django, made easy. |
+| [djangorestframework_simplejwt](https://pypi.org/project/djangorestframework-simplejwt/) | A minimal JSON Web Token authentication plugin for Django REST Framework |
 
 ### Other tools and programs
 
