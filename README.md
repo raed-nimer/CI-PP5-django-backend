@@ -7,6 +7,8 @@ Powerhouse is a cutting-edge B2C eCommerce platform dedicated to gym enthusiasts
 
 ## Database Schemas
 
+![ER Diagram](staticfiles/readme-images/Database-schema.png)
+
 ### User model
 
 - The user model is the default Django user model.
