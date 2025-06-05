@@ -265,3 +265,9 @@ This project was created using the following languages and frameworks:
     2. Scroll to the bottom of that page. Click on the "Deploy Branch" button to deploy.
     3. You should also see an option to enable automatic deployment. If you enable this, every time you push to GitHub, Heroku will automatically deploy the app.
 12. Once the build starts, you should be able to see the logs at the bottom of the page. After successfully finishing building the app, you should see the link to your app.
+
+### Image resources
+Images in this project are from the following resources:
+- https://gymconcepts.ca/pages/fitness-equipment-for-corporate-office
+- https://www.zalando.se/man-home/
+- https://unsplash.com/s/photos/gym
