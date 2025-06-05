@@ -266,6 +266,13 @@ This project was created using the following languages and frameworks:
     3. You should also see an option to enable automatic deployment. If you enable this, every time you push to GitHub, Heroku will automatically deploy the app.
 12. Once the build starts, you should be able to see the logs at the bottom of the page. After successfully finishing building the app, you should see the link to your app.
 
+## Credits
+
+- The web app is inpired by [Zalando](https://www.zalando.se/)
+- [Code Institute](https://codeinstitute.net/) content and articles were really helpful in making this project a success.
+- John Elder tutorials ([codemy.com](https://www.youtube.com/@Codemycom)) on django have helped in developing complex logic.
+- [Slack community](https://slack.com/intl/en-ie/) for their support.
+
 ### Image resources
 Images in this project are from the following resources:
 - https://gymconcepts.ca/pages/fitness-equipment-for-corporate-office
