@@ -118,7 +118,24 @@ I felt a bit more confident implementing the Agile methodology since I had exper
 
 Epics and User stories helped me organize the project better. And it can be even more efficient when used within a team. I will continue using this methodology for my future projects, considering it very helpful. I will also start exploring Jira, which is also considered a good agile and project management tool.
 
-I created four columns: Backlog, In Progress, In review, and Done.
+I created four columns: Backlog, In Progress, In review, and Done. I also created 9 labels:
+
+For MoSCoW prioritization: Must-have, Should-have, Could-have, Won't-have
+
+5 helper labels: bug, Epic, documentation, enhancement, User-story
+
+I created 7 Epics, divided into 12 user stories. Epics and User Stories are connected with the # link on the title and in the description.
+
+| Example    | Image                                                |
+| ---------- | ---------------------------------------------------- |
+| Epic       | ![Epic](staticfiles/readme-images/Epic.png)     |
+| User story | ![User story](staticfiles/readme-images/User-story.png) |
+
+My Kanban board:
+
+| At the start                                                | Current status                                                    |
+| ----------------------------------------------------------- | ----------------------------------------------------------------- |
+| ![Kanban board](staticfiles/readme-images/kanban-1.png) | ![Kanban board](staticfiles/readme-images/kanban-2.png) |
 
 ## Tools and technologies used
 
