@@ -2,6 +2,13 @@
 
 Powerhouse is a cutting-edge B2C eCommerce platform dedicated to gym enthusiasts, athletes, and anyone passionate about fitness. Specializing in high-quality gymwear and top-tier fitness equipment, Powerhouse offers a seamless online shopping experience tailored to individuals who demand both performance and style. From breathable, functional activewear to heavy-duty home gym gear, every product is curated to support serious training and everyday workouts alike. With user-friendly navigation and fast delivery, Powerhouse is the go-to online destination for fitness lovers looking to gear up and level up—all in one powerful platform.
 
+Base URL of the API can be accessed [here](https://django-powerhouse-api-2c217eecb4f4.herokuapp.com/)
+
+Admin Panel can be acceessed [here](https://django-powerhouse-api-2c217eecb4f4.herokuapp.com/admin)
+
+The frontend of the App can be accessed [here](https://ci-pp-5-react-frontend.vercel.app/)
+
+
 ### Project Goals
 
 - To create REST APIs that assist in developing a visually appealing website
