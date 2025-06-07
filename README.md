@@ -1,9 +1,13 @@
 # Introduction
 
 Powerhouse is a cutting-edge B2C eCommerce platform dedicated to gym enthusiasts, athletes, and anyone passionate about fitness. Specializing in high-quality gymwear and top-tier fitness equipment, Powerhouse offers a seamless online shopping experience tailored to individuals who demand both performance and style. From breathable, functional activewear to heavy-duty home gym gear, every product is curated to support serious training and everyday workouts alike. With user-friendly navigation and fast delivery, Powerhouse is the go-to online destination for fitness lovers looking to gear up and level up—all in one powerful platform.
+
 ### Project Goals
 
-# User Stories
+- To create REST APIs that assist in developing a visually appealing website
+- To create REST APIs that are simple to implement with clear guidelines
+- To create APIs that support the front-end.
+- To create REST APIs that support all the required operations.
 
 ## Database Schemas
 
@@ -170,6 +174,134 @@ This project was created using the following languages and frameworks:
 - [Grammarly](https://www.grammarly.com/) was used to double-check spelling mistakes.
 - [Lucid](https://lucid.co/) was used to create database ERD
 
+# Features
+
+### Register API
+
+- Creates a new user account.
+
+- Accepts firstName, lastName, email, and password.
+
+- Validates that email and password are present.
+
+- Checks for existing users by email.
+
+- Returns User details, JWT access and refresh tokens, and a Success message
+
+![Register API](staticfiles/readme-images/registerapi.png)
+
+### Login API
+
+- Authenticates an existing user using email and password.
+
+- Validates presence of credentials.
+
+- Checks if the user exists and the password matches.
+
+- Returns User details, JWT access and refresh tokens, and a Success message
+
+![Login API](staticfiles/readme-images/loginapi.png)
+
+### Get Profile API
+
+- Requires JWT access token (authentication).
+
+- Fetches and returns the authenticated user's profile info.
+
+- Returns user ID, first name, last name, email
+
+![Get Profile API](staticfiles/readme-images/getprofile.png)
+
+### Update Profile API
+
+- Requires JWT access token (authentication).
+
+- Allows the user to update their profile.
+
+- Returns updated user details and a success message.
+
+![Update Profile API](staticfiles/readme-images/updateprofile.png)
+
+### Get Products API
+
+- Returns a list of all products.
+
+- Each product includes: ID, Name, Description, Category name, Cloudinary image URL, Price
+
+![Get Products API](staticfiles/readme-images/getproducts.png)
+
+### Category List API
+
+- Returns a list of all categories.
+
+- Each product includes: ID, Name
+
+![Category List API](staticfiles/readme-images/categorylist.png)
+
+### Product Detail API
+
+- Returns details of a specific product by ID.
+
+- Each product includes: ID, Name, Description, Category name, Cloudinary image URL, Price
+
+![Product Detail API](staticfiles/readme-images/productdetail.png)
+
+### Get Cart API
+
+- Retrieves all cart items for the authenticated user.
+
+- Each item includes the cart item ID, product ID, name, price, image, and quantity
+
+![Get Cart API](staticfiles/readme-images/getcart.png)
+
+### Add to Cart API
+
+- Adds a product to the cart
+
+- If the product already exists, it increments the quantity.
+
+![Add to Cart API](staticfiles/readme-images/addtocart.png)
+
+### Update Cart API
+
+- Updates the quantity of an existing cart item.
+
+![Update Cart API](staticfiles/readme-images/updatecart.png)
+
+### Delete Cart API
+
+- Deletes a specific item from the user's cart.
+
+![Delete Cart API](staticfiles/readme-images/deletecart.png)
+
+### Place Order API
+
+- Places an order for the authenticated user based on the items in their cart.
+
+- Captures user shipping details (name, email, address, country, state, zip) and payment method.
+
+- Creates an order and associated order items from the cart.
+
+![Place Order API](staticfiles/readme-images/placeorder.png)
+
+### List Orders API
+
+- Retrieves all orders for the authenticated user.
+
+- Each order includes order ID, creation timestamp, total price, and a list of order items.
+
+![List Orders API](staticfiles/readme-images/listorders.png)
+
+### Contact API
+
+- Allows users to submit contact form details (name, email, subject, description)
+
+- Saves submissions to the database.
+
+![Contact API](staticfiles/readme-images/contactapi.png)
+
+
+
 # Testing
 
 ### PEP8 Code Institute Python Linter Validation
@@ -268,7 +400,7 @@ This project was created using the following languages and frameworks:
 
 ## Credits
 
-- The web app is inpired by [Zalando](https://www.zalando.se/)
+- The web app is inspired by [Zalando](https://www.zalando.se/)
 - [Code Institute](https://codeinstitute.net/) content and articles were really helpful in making this project a success.
 - John Elder tutorials ([codemy.com](https://www.youtube.com/@Codemycom)) on django have helped in developing complex logic.
 - [Slack community](https://slack.com/intl/en-ie/) for their support.
