@@ -4,9 +4,9 @@ Powerhouse is a cutting-edge B2C eCommerce platform dedicated to gym enthusiasts
 
 Base URL of the API can be accessed [here](https://django-powerhouse-api-2c217eecb4f4.herokuapp.com/)
 
-Admin Panel can be acceessed [here](https://django-powerhouse-api-2c217eecb4f4.herokuapp.com/admin)
+Admin Panel can be accessed [here](https://django-powerhouse-api-2c217eecb4f4.herokuapp.com/admin)
 
-The frontend of the App can be accessed [here](https://ci-pp-5-react-frontend.vercel.app/)
+The frontend of the App can be accessed [here](https://ci-pp5-react-frontend.onrender.com/)
 
 
 ### Project Goals
